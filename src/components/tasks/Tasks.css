@@ -1,0 +1,54 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+
+.dashboardBody {
+  padding-top: 5%;
+  width: 80%;
+}
+
+.tmDashboardNav {
+  background-color: white;
+  color: #285DAF;
+  border: 1px solid #285DAF;
+}
+
+.projectCard {
+  background-color: white;
+  border-radius: 5px;
+  margin: 15px 2px 2px 25px;
+  padding: 12px 0;
+  box-shadow: 7px 7px 4px #E5E5E5;
+}
+
+.projectDivideHr {
+  height: 4px;
+  width: 30%;
+  background: #007BFF;
+  margin-left: 0;
+}
+
+.projectSubtitle {
+  font-size: 16px;
+}
+
+.addTaskBtnDiv {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.taskCard {
+  background: white;
+  border: 1px solid #D5D5D5;
+  margin: 10px 0;
+  padding: 5px;
+}
+
+.taskActionDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.taskDescription {
+  font-family: 'Cookie', cursive;
+  font-size: 20px;
+}
