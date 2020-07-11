@@ -1,0 +1,16 @@
+.navbar-nav li span {
+    cursor: pointer;
+}
+
+.navbar-nav li span:hover {
+    color: white;
+}
+
+.tmNavBar {
+    background-color: #285DAF;
+    color: #E5E5E5;
+}
+
+.btnSubmit {
+    width: 100%;
+}
