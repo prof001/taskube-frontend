@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
-
 .dashboardBody {
   padding-top: 5%;
   width: 80%;
@@ -37,7 +35,7 @@
 
 .taskCard {
   background: white;
-  border: 1px solid #D5D5D5;
+  border: 2px solid #007BFF;
   margin: 10px 0;
   padding: 5px;
 }
@@ -47,7 +45,37 @@
   justify-content: space-between;
 }
 
-.taskDescription {
-  font-family: 'Cookie', cursive;
+.taskDescription, .taskDate {
+  font-size: 13px;
+}
+
+.trashIcon {
   font-size: 20px;
+  color: #414141;
+  cursor: pointer;
+}
+
+.trashIcon:hover {
+  color: #DA2111;
+  font-size: 24px;
+}
+
+.doneCheckBox {
+  width: 1em; height: 1em;
+  border: 2px solid #ccc;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+  margin-right: 5px;
+}
+
+.doneCheckBox:checked {
+  font-size: 1.1em;
+  line-height: 0.8;
+  color: #09ad7e;
+  transition: all .2s;
+}
+
+.timeDiv * {
+  vertical-align: middle;
 }

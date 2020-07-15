@@ -9,12 +9,13 @@ const Task = () => {
         Task description task description task description
         task description task description
       </div>
-      <div className="taskActionDiv">
+      <div className="taskActionDiv mt-2">
         <div>
-          <FontAwesomeIcon icon={faTrash} color="yellow"/>
+          <FontAwesomeIcon icon={faTrash} className="trashIcon"/>
         </div>
-        <div>
-          <span>23 June 2020</span>
+        <div className="timeDiv">
+          <input type="checkbox" className="doneCheckBox"/>
+          <span className="taskDate">23 June 2020</span>
         </div>
       </div>
     </div>
