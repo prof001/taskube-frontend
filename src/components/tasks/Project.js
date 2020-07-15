@@ -2,11 +2,15 @@ import React, {useState} from "react";
 import './Tasks.css'
 import Task from "./Task";
 import {Button, Modal} from "react-bootstrap";
+import DateTimePicker from "react-datetime-picker";
 
 const Project = () => {
   const [show, setShow] = useState(false);
+  const [dateTime, setDateTime] = useState(new Date());
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const handleDateTime = date => setDateTime(date);
 
   return (
     <div className="projectCard col-md-3">
@@ -31,7 +35,7 @@ const Project = () => {
           </div>
           <div className="form-group">
             <label>Task Due Date</label>
-            <input type="text" className="form-control" />
+            <DateTimePicker onChange={handleDateTime} value={dateTime}/>
           </div>
         </Modal.Body>
         <Modal.Footer>
