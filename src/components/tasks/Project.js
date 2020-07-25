@@ -27,7 +27,6 @@ const Project = () => {
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Coolest modal
           <div className="form-group">
             <label>Task Description</label>
             <textarea className="form-control" cols="8">

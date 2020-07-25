@@ -1,6 +1,6 @@
 .dashboardBody {
-  padding-top: 5%;
   width: 80%;
+  padding: 5% 10px 5px 10px;
 }
 
 .tmDashboardNav {
@@ -55,8 +55,11 @@
   cursor: pointer;
 }
 
-.trashIcon:hover {
+.trashIcon {
   color: #DA2111;
+}
+
+.trashIcon:hover {
   font-size: 24px;
 }
 

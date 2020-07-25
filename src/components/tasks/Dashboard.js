@@ -8,7 +8,12 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
       <DashboardNav />
-      <Project/>
+      <div className="row">
+        <Project/>
+        <Project/>
+        <Project/>
+        <Project/>
+      </div>
     </div>
   )
 };
