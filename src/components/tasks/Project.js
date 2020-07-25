@@ -13,7 +13,7 @@ const Project = () => {
   const handleDateTime = date => setDateTime(date);
 
   return (
-    <div className="projectCard col-md-3">
+    <div className="projectCard col-md-3 mr-3">
       <h3>Project Title</h3>
       <div className="projectSubtitle">Project subtitle project subtitle project subtitle project subtitle</div>
       <hr className="projectDivideHr"/>
