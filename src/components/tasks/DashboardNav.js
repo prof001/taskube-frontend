@@ -3,6 +3,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlus, faCog} from "@fortawesome/free-solid-svg-icons";
 import '../layouts/Layouts.css';
 import {Button, Modal} from "react-bootstrap";
+import axios from "axios";
 
 class DashboardNav extends React.Component{
   state = {
@@ -10,36 +11,53 @@ class DashboardNav extends React.Component{
     title: '',
     description: ''
   };
-  // const [show, setShow] = useState(false);
 
-  /*handleModalClose = () => setShow(false);
-  handleModalShow = () => setShow(true);
-  handleFormSubmit = () => {};*/
+  pullRecords = async () => {
+    try {
+      const res = await axios.get('http://localhost:3000/api/v1/tasks');
+      console.log(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  componentDidMount() {
+    this.pullRecords();
+  }
 
   handleModalShow = () => {
     this.setState({
       show: true,
     })
   };
+
   handleModalClose = () => {
     this.setState({
       show: false
     })
   };
+
   setTitle = (event) => {
     this.setState({
       title: event.target.value
     })
   };
+
   setDescription = (event) => {
     this.setState({
       description: event.target.value
     })
   };
-  handleFormSubmit = () => {
+
+  handleFormSubmit = async () => {
     const {title, description} = this.state;
     const projectDetails = {title, description};
-    console.log(projectDetails);
+    try {
+      const res = await axios.post('http://localhost:3000/api/v1/tasks/createProject', projectDetails);
+      console.log(res.data);
+    } catch (err) {
+      console.log(err);
+    }
     this.setState({
       title: '',
       description: ''
