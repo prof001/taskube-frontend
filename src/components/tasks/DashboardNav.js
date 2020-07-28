@@ -6,16 +6,20 @@ import {Button, Modal} from "react-bootstrap";
 import axios from "axios";
 
 class DashboardNav extends React.Component{
-  state = {
-    show: false,
-    title: '',
-    description: ''
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      show: false,
+      title: '',
+      description: ''
+    };
+  }
 
   pullRecords = async () => {
     try {
       const res = await axios.get('http://localhost:3000/api/v1/tasks');
-      console.log(res.data);
+      // console.log(res.data);
+      this.props.response(res.data);
     } catch (err) {
       console.log(err);
     }
@@ -53,8 +57,8 @@ class DashboardNav extends React.Component{
     const {title, description} = this.state;
     const projectDetails = {title, description};
     try {
-      const res = await axios.post('http://localhost:3000/api/v1/tasks/createProject', projectDetails);
-      console.log(res.data);
+      await axios.post('http://localhost:3000/api/v1/tasks/createProject', projectDetails);
+      this.props.alert();
     } catch (err) {
       console.log(err);
     }
