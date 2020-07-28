@@ -9,13 +9,10 @@ const Dashboard = () => {
   const [show, setShow] = useState(false);
 
   const updateShow = () => setShow(true);
-  const displayResponse = (val) => {
-    // console.log(val);
-  };
 
   return (
     <div className="dashboard">
-      <DashboardNav response={displayResponse} alert={updateShow}/>
+      <DashboardNav showAlert={updateShow}/>
       {show && (
         <Alert variant="primary" onClose={() => setShow(false)} dismissible>
           New project has been created!

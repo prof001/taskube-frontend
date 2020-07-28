@@ -4,6 +4,7 @@ import {faPlus, faCog} from "@fortawesome/free-solid-svg-icons";
 import '../layouts/Layouts.css';
 import {Button, Modal} from "react-bootstrap";
 import axios from "axios";
+import PropTypes from 'prop-types';
 
 class DashboardNav extends React.Component{
   constructor(props) {
@@ -18,15 +19,14 @@ class DashboardNav extends React.Component{
   pullRecords = async () => {
     try {
       const res = await axios.get('http://localhost:3000/api/v1/tasks');
-      // console.log(res.data);
-      this.props.response(res.data);
+      console.log(res);
     } catch (err) {
       console.log(err);
     }
   };
 
   componentDidMount() {
-    this.pullRecords();
+    // this.pullRecords();
   }
 
   handleModalShow = () => {
@@ -58,7 +58,7 @@ class DashboardNav extends React.Component{
     const projectDetails = {title, description};
     try {
       await axios.post('http://localhost:3000/api/v1/tasks/createProject', projectDetails);
-      this.props.alert();
+      this.props.showAlert();
     } catch (err) {
       console.log(err);
     }
@@ -118,5 +118,9 @@ class DashboardNav extends React.Component{
     )
   }
 }
+
+DashboardNav.propTypes = {
+  showAlert: PropTypes.func
+};
 
 export default DashboardNav
