@@ -16,19 +16,6 @@ class DashboardNav extends React.Component{
     };
   }
 
-  pullRecords = async () => {
-    try {
-      const res = await axios.get('http://localhost:3000/api/v1/tasks');
-      console.log(res);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  componentDidMount() {
-    // this.pullRecords();
-  }
-
   handleModalShow = () => {
     this.setState({
       show: true,
@@ -57,8 +44,9 @@ class DashboardNav extends React.Component{
     const {title, description} = this.state;
     const projectDetails = {title, description};
     try {
-      await axios.post('http://localhost:3000/api/v1/tasks/createProject', projectDetails);
+      await axios.post('http://localhost:3000/api/v1/projects/createProject', projectDetails);
       this.props.showAlert();
+      this.props.showProject();
     } catch (err) {
       console.log(err);
     }
