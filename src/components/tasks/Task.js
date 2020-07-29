@@ -1,13 +1,14 @@
 import React from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTrash} from "@fortawesome/free-solid-svg-icons";
+import PropTypes from 'prop-types';
 
-const Task = () => {
+const Task = (props) => {
+  const {description} = props;
   return (
     <div className="taskCard">
       <div className="taskDescription">
-        Task description task description task description
-        task description task description
+        {description}
       </div>
       <div className="taskActionDiv mt-2">
         <div>
@@ -20,6 +21,11 @@ const Task = () => {
       </div>
     </div>
   )
+};
+
+Task.propTypes = {
+  taskId: PropTypes.number.isRequired,
+  description: PropTypes.string.isRequired
 };
 
 export default Task

@@ -10,7 +10,8 @@ class Project extends React.Component {
     super(props);
     this.state = {
       show: false,
-      taskDescription: ''
+      taskDescription: '',
+      tasks: []
     }
   }
 
@@ -32,6 +33,10 @@ class Project extends React.Component {
     })
   };
 
+  componentDidMount() {
+    this.getTasks();
+  }
+
   createTask = async () => {
     const taskDetail = {
       projectId: this.props.projectId,
@@ -47,8 +52,20 @@ class Project extends React.Component {
     }
   };
 
+  getTasks = async () => {
+    try {
+      const res = await axios.get(`http://localhost:3000/api/v1/projects/${this.props.projectId}`);
+      this.setState({
+        tasks: res.data
+      })
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   render() {
     const {title, description} = this.props;
+    console.log(this.state.tasks);
     return (
       <div className="projectCard col-md-3 mr-3">
         <h3>{title}</h3>
@@ -57,7 +74,9 @@ class Project extends React.Component {
         <div className="addTaskBtnDiv">
           <button className="btn btn-sm btn-primary" onClick={this.handleShow}>Add Task</button>
         </div>
-        <Task/>
+        {this.state.tasks.map(task => (
+          <Task key={task.taskId} description={task.description} taskId={task.taskId}/>
+        ))}
 
         <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
